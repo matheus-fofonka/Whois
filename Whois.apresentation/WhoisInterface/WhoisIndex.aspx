@@ -18,9 +18,10 @@
         <div>
 
             <asp:Label ID="Label1" runat="server" Text="Domínio : "></asp:Label>
-            <asp:TextBox ID="txtURL" runat="server" Height="19px"  Width="826px" ></asp:TextBox>            
+            <asp:TextBox ID="txtURL" runat="server" Height="19px"  Width="267px" OnTextChanged="txtURL_TextChanged" ></asp:TextBox>            
         </div>
         <asp:Label ID="lblDomain" runat="server"></asp:Label>
+        <br />
         <br />
         <div>
         <asp:Button ID="btnSearch" runat="server" OnClick="Button1_Click" Text="Search" />
@@ -48,7 +49,9 @@
         <div>
             <asp:Label ID="Label6" runat="server" Text="Lista de Servers:"></asp:Label>
             <br />
-            <asp:ListBox ID="ListBox1" runat="server" Width="381px"></asp:ListBox>
+            <asp:ListBox ID="ListBox1" runat="server" Width="354px" Height="200px"></asp:ListBox>
+            <br />
+            <br />
         </div>
 
     </form>
