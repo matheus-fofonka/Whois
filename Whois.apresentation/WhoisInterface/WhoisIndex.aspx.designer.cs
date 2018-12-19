@@ -40,6 +40,24 @@ namespace Whois.apresentation.WhoisInterface {
         protected global::System.Web.UI.WebControls.TextBox txtURL;
         
         /// <summary>
+        /// Controle btnSearch.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSearch;
+        
+        /// <summary>
+        /// Controle Label8.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label8;
+        
+        /// <summary>
         /// Controle lblDomain.
         /// </summary>
         /// <remarks>
@@ -49,13 +67,13 @@ namespace Whois.apresentation.WhoisInterface {
         protected global::System.Web.UI.WebControls.Label lblDomain;
         
         /// <summary>
-        /// Controle btnSearch.
+        /// Controle Label7.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
+        protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
         /// Controle lblSTATUS.
@@ -137,5 +155,14 @@ namespace Whois.apresentation.WhoisInterface {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox ListBox1;
+        
+        /// <summary>
+        /// Controle ListBox2.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox ListBox2;
     }
 }

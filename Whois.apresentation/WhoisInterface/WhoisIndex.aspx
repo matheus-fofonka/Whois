@@ -16,17 +16,19 @@
 <body>
     <form id="IndexWI" runat="server">
         <div>
-
+            
             <asp:Label ID="Label1" runat="server" Text="Domínio : "></asp:Label>
-            <asp:TextBox ID="txtURL" runat="server" Height="19px"  Width="267px" OnTextChanged="txtURL_TextChanged" ></asp:TextBox>            
+            <asp:TextBox ID="txtURL" runat="server" Height="19px"  Width="267px" ></asp:TextBox>  
+            <asp:Button ID="btnSearch" runat="server" OnClick="Button1_Click" Text="Search" />
         </div>
+        <br />
+        <asp:Label ID="Label8" runat="server" Text="Site : "></asp:Label>
         <asp:Label ID="lblDomain" runat="server"></asp:Label>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <asp:Label ID="Label7" runat="server" Text="Search History : "></asp:Label>
+        <a href="ResultsIndex.aspx"><img src="resultsIMG.png" alt="Results" style="border-style: none; border-color: inherit; border-width: 0; width:35px; height:35px;"/></a>
         <br />
-        <br />
-        <div>
-        <asp:Button ID="btnSearch" runat="server" OnClick="Button1_Click" Text="Search" />
-            </div>
-            <br />
+         <br />
         <div>
             <asp:Label ID="lblSTATUS" runat="server" ForeColor="Blue" Text="STATUS"></asp:Label>
         </div>
@@ -45,12 +47,14 @@
             <asp:Label ID="Label5" runat="server" Text="Data de Expiração :"></asp:Label>
             <asp:Label ID="lblDtExpiration" runat="server"></asp:Label>
         </div>
-        <br />        <br />
+        <br />
         <div>
             <asp:Label ID="Label6" runat="server" Text="Lista de Servers:"></asp:Label>
             <br />
-            <asp:ListBox ID="ListBox1" runat="server" Width="354px" Height="200px"></asp:ListBox>
+            <asp:ListBox ID="ListBox1" runat="server" Width="418px" Height="152px"></asp:ListBox>
             <br />
+            <br />
+            <asp:ListBox ID="ListBox2" runat="server" Height="94px" Width="414px"></asp:ListBox>
             <br />
         </div>
 

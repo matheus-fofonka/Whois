@@ -4,3 +4,9 @@ C:\Users\mfofonka\Google Drive\C#\RepositAcer\WHOIS01\Whois.Model\obj\Debug\Whoi
 C:\Users\mfofonka\Google Drive\C#\RepositAcer\WHOIS01\Whois.Model\obj\Debug\Whois.Entities.csproj.CoreCompileInputs.cache
 C:\Users\mfofonka\Google Drive\C#\RepositAcer\WHOIS01\Whois.Model\obj\Debug\Whois.Model.dll
 C:\Users\mfofonka\Google Drive\C#\RepositAcer\WHOIS01\Whois.Model\obj\Debug\Whois.Model.pdb
+C:\Users\mfofonka\source\repos\Whois\Whois.Model\obj\Debug\Whois.Entities.csprojAssemblyReference.cache
+C:\Users\mfofonka\source\repos\Whois\Whois.Model\obj\Debug\Whois.Entities.csproj.CoreCompileInputs.cache
+C:\Users\mfofonka\source\repos\Whois\Whois.Model\obj\Debug\Whois.Model.dll
+C:\Users\mfofonka\source\repos\Whois\Whois.Model\obj\Debug\Whois.Model.pdb
+C:\Users\mfofonka\source\repos\Whois\Whois.Model\bin\Debug\Whois.Model.dll
+C:\Users\mfofonka\source\repos\Whois\Whois.Model\bin\Debug\Whois.Model.pdb
