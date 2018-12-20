@@ -24,16 +24,14 @@ namespace Whois.Entities
         public string DtAlteration { get; set; }
         [XmlElement("DtExpiration")]
         public string DtExpiration { get; set; }
-        //   [XmlElement("ListServers")]
-        // public List<string> ListServers { get; set; }
 
         public bool Exportar()
         {
             try
             {
-                Type[] personTypes = { typeof(List<Dominio>), typeof(Dominio) };
-                FileStream stream = new FileStream(@"C:\Users\mfofonka\source\repos\Whois\NewDominio.xml", FileMode.OpenOrCreate);
-                XmlSerializer serializador = new XmlSerializer(dominios.GetType(), new XmlRootAttribute("dominios"));
+                FileStream stream = new FileStream(@"C:\Users\mfofonka\source\repos\Whois\Dominio.xml", FileMode.Append);
+                XmlSerializer serializador = new XmlSerializer(typeof(Dominio));
+                serializador.Serialize(stream, this);
                 return true;
             }
             catch
@@ -42,4 +40,4 @@ namespace Whois.Entities
             }
         }
     }
-}
+    }

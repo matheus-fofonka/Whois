@@ -26,7 +26,7 @@ namespace Whois.apresentation.WhoisInterface
                 try
                 {
                     FileStream stream = new FileStream(@"C:\Users\mfofonka\source\repos\Whois\Dominio.xml", FileMode.Create);
-                    XmlSerializer serializador = new XmlSerializer(typeof(oDominio));
+                    XmlSerializer serializador = new XmlSerializer(typeof(Dominio));
                     serializador.Serialize(stream, this);
                     return true;
                 }
