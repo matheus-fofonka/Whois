@@ -11,12 +11,15 @@ using Whois.NET;
 using Whois;
 using Whois.Entities;
 using Whois.apresentation;
+using Whois.apresentation.SqlConnect;
 
 namespace Whois.apresentation.WhoisInterface
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
         Dominio dom = new Dominio();
+        DataSql sql = new DataSql();
+
         public bool av;
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -36,6 +39,8 @@ namespace Whois.apresentation.WhoisInterface
                 var whois = new WhoisLookup();
                 var response = whois.Lookup(txtURL.Text);
                 string sub = (response.Content).Substring(0, 12);
+
+                sql.UrlSearched = txtURL.Text;
 
                 if (sub != "No match for")
                 {
@@ -70,8 +75,18 @@ namespace Whois.apresentation.WhoisInterface
                     txtURL.Text = "Domínio disponível para registro. ";
                     ListBox1.Items.Add("Ainda não possui servidores.");
                 }
-
+                string avString;
+                if (av == true)
+                {
+                 avString = "Avaliable";
+                }
+                else
+                {
+                 avString = "unavailable";
+                }
+                sql.AvaliableRegister = avString;
                 dom.Exportar();
+                sql.SqlSaver();
             }
             else { txtURL.Text = ("digite uma URL"); };
 
