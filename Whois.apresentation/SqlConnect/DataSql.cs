@@ -30,5 +30,12 @@ namespace Whois.apresentation.SqlConnect
                     connection.Close();
             }
         }
+/*
+        public void SqlPull()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Categories ORDER BY CategoryName", sqlConn);
+ 
+        }           SqlDataReader dr = cmd.ExecuteReader();*/
+
     }
 }

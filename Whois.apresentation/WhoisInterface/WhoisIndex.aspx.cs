@@ -26,10 +26,34 @@ namespace Whois.apresentation.WhoisInterface
         {
             ListBox1.Items.Clear();
 
+            txtURL.Text = TreatURL();
+
             AddInfo();
 
         }
 
+        public string TreatURL()
+        {
+            string[] sptURL = txtURL.Text.Split('.');
+
+            if (sptURL[0].Substring(0, 3) == "htt" || sptURL[0].Substring(0, 3) == "www")
+            {
+                sptURL[0] = "";
+            }
+
+            string arrayToStr = String.Join(".", sptURL);
+            char[] strForCharArr = arrayToStr.ToCharArray();
+
+            if (strForCharArr[0] == '.')
+            {
+                arrayToStr = "";
+                for (int i = 1; i < strForCharArr.Length; i++)
+                {
+                    arrayToStr = (arrayToStr + strForCharArr[i]);
+                }
+            }           
+            return arrayToStr;
+        }
 
 
         public void AddInfo()
@@ -39,8 +63,16 @@ namespace Whois.apresentation.WhoisInterface
                 var whois = new WhoisLookup();
                 var response = whois.Lookup(txtURL.Text);
                 string sub = (response.Content).Substring(0, 12);
-
-                sql.UrlSearched = txtURL.Text;
+                if (txtURL.Text != "")
+                {
+                    sql.UrlSearched = txtURL.Text;
+                }
+                else
+                {
+                    sql.UrlSearched = "Não detectado!!";
+                }
+                string url = txtURL.Text;
+                int treatUrl = url.IndexOf(".");
 
                 if (sub != "No match for")
                 {
@@ -50,7 +82,6 @@ namespace Whois.apresentation.WhoisInterface
 
                     lblSTATUS.ForeColor = System.Drawing.Color.Red;
                     lblSTATUS.Text = "Registrado";
-
                     lblDomain.Text = response.ParsedResponse.DomainName.ToString();
                     dom.NmDomain = response.ParsedResponse.DomainName.ToString();
                     lblDtRegister.Text = response.ParsedResponse.Registered.ToString();
@@ -60,12 +91,12 @@ namespace Whois.apresentation.WhoisInterface
                     lblDtExpiration.Text = response.ParsedResponse.Expiration.ToString();
                     dom.DtExpiration = response.ParsedResponse.Expiration.ToString();
 
+
                     var servers = response.ParsedResponse.NameServers;
                     foreach (string value in servers)
                     {
                         ListBox1.Items.Add(value);
                     }
-
                 }
                 else
                 {
@@ -78,11 +109,11 @@ namespace Whois.apresentation.WhoisInterface
                 string avString;
                 if (av == true)
                 {
-                 avString = "Avaliable";
+                    avString = "Avaliable";
                 }
                 else
                 {
-                 avString = "unavailable";
+                    avString = "unavailable";
                 }
                 sql.AvaliableRegister = avString;
                 dom.Exportar();
