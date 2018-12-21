@@ -14,13 +14,19 @@ namespace Whois.apresentation.WhoisInterface
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+        /*
             DataSql sql = new DataSql();
             var lst = sql.SqlPull();
 
             foreach (var dados in lst)
             {
                 lstResults.Items.Add(dados);
-            }
+            }*/
+        }
+
+        protected void SqlDataSource1_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+        {
+
         }
     }
 }

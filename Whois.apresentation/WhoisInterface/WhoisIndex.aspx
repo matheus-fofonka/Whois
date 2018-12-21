@@ -6,7 +6,7 @@
 <head runat="server">
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Pesquise Domínios</title>
     <style type="text/css">
         #IndexWI {
             height: 289px;
@@ -51,10 +51,9 @@
         <div>
             <asp:Label ID="Label6" runat="server" Text="Lista de Servers:"></asp:Label>
             <br />
-            <asp:ListBox ID="ListBox1" runat="server" Width="418px" Height="152px"></asp:ListBox>
+            <asp:ListBox ID="ListBox1" runat="server" Width="450px" Height="229px"></asp:ListBox>
             <br />
             <br />
-            <asp:ListBox ID="ListBox2" runat="server" Height="94px" Width="414px"></asp:ListBox>
             <br />
         </div>
 

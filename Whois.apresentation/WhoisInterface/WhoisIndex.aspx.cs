@@ -26,15 +26,19 @@ namespace Whois.apresentation.WhoisInterface
         protected void Button1_Click(object sender, EventArgs e)
         {
             ListBox1.Items.Clear();
-
+            
             txtURL.Text = TreatURL();
 
-            AddInfo();
+            if (txtURL.Text != "digite uma URL")
+            {
+                AddInfo();
+            }
+
 
         }
 
-        public string TreatURL()
-        {
+        public string TreatURL() { 
+         if (txtURL.Text != "" && txtURL.Text != "digite uma URL" && txtURL.Text != "Domínio está registrado. " && txtURL.Text != "Domínio disponível para registro. "){
             string[] sptURL = txtURL.Text.Split('.');
 
             if (sptURL[0].Substring(0, 3) == "htt" || sptURL[0].Substring(0, 3) == "www")
@@ -43,23 +47,44 @@ namespace Whois.apresentation.WhoisInterface
             }
 
             string arrayToStr = String.Join(".", sptURL);
-            char[] strForCharArr = arrayToStr.ToCharArray();
+            char[] strForCharArrDot = arrayToStr.ToCharArray();
 
-            if (strForCharArr[0] == '.')
+            if (strForCharArrDot[0] == '.')
             {
                 arrayToStr = "";
-                for (int i = 1; i < strForCharArr.Length; i++)
+                for (int i = 1; i < strForCharArrDot.Length; i++)
                 {
-                    arrayToStr = (arrayToStr + strForCharArr[i]);
+                    arrayToStr = (arrayToStr + strForCharArrDot[i]);
                 }
-            }           
+            }
+
+            string invertedStr = new String(arrayToStr.Reverse().ToArray());
+
+            char[] strForCharInverter = invertedStr.ToCharArray();
+
+            if (strForCharInverter[0] == '/')
+            {
+                arrayToStr = "";
+                for (int i = 1; i < strForCharInverter.Length; i++)
+                {
+                    arrayToStr = (arrayToStr + strForCharInverter[i]);
+                }
+                arrayToStr = new String(arrayToStr.Reverse().ToArray());
+            }
+
             return arrayToStr;
+            }
+            else
+            {
+                txtURL.Text = ("digite uma URL");
+                return txtURL.Text;
+            }
         }
 
 
         public void AddInfo()
         {
-            if (txtURL.Text != "" && txtURL.Text != "digite uma URL" && txtURL.Text != "Domínio está registrado. " && txtURL.Text != "Domínio disponível para registro. ")
+           
             {
                 var whois = new WhoisLookup();
                 var response = whois.Lookup(txtURL.Text);
@@ -120,7 +145,7 @@ namespace Whois.apresentation.WhoisInterface
                 dom.Export();
                 sql.SqlPush();
             }
-            else { txtURL.Text = ("digite uma URL"); };
+             
 
         }
 

@@ -29,7 +29,7 @@ namespace Whois.Entities
         {
             try
             {
-                FileStream stream = new FileStream(@"C:\Users\mfofonka\source\repos\Whois\Dominio.xml", FileMode.Append);
+                FileStream stream = new FileStream(@"C:\Users\mfofonka\source\repos\Whois\Whois.Model\Dominio.xml", FileMode.Append);
                 XmlSerializer serializador = new XmlSerializer(typeof(Dominio));
                 serializador.Serialize(stream, this);
                 return true;
