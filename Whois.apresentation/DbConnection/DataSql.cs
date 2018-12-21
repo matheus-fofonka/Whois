@@ -13,6 +13,7 @@ namespace Whois.apresentation.DbConnection
     {
         public String UrlSearched { get; set; }
         public String AvaliableRegister { get; set; }
+        public String DtTime { get; set; }
 
         private string connStr = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
         private List<string> lista = new List<string>();
@@ -20,7 +21,7 @@ namespace Whois.apresentation.DbConnection
         public void SqlPush()
         {
             SqlConnection connection = new SqlConnection(connStr);
-            SqlCommand command = new SqlCommand("INSERT INTO Table_nm_avaliable(nmURL,boolAvaliable) VALUES('" + UrlSearched + "','" + AvaliableRegister + "')", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO Table_nm_avaliable(nmURL,boolAvaliable,dtSearch) VALUES('" + UrlSearched + "','" + AvaliableRegister + "','" + DtTime + "')", connection);
 
             try
             {

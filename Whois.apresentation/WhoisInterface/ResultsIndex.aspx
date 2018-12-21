@@ -20,12 +20,13 @@
 <a href="WhoisIndex.aspx"><img src="indexIMG.png" alt="Home" style="border-style: none; border-color: inherit; border-width: 0; width:25px; height:25px;"/></a>
     </div>
         <br /><br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource" ForeColor="#333333" GridLines="None" Height="500px" HorizontalAlign="Center" Width="1000px">
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource" ForeColor="#333333" GridLines="None" Height="600px" Width="1000px">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
                     <asp:BoundField DataField="nmURL" HeaderText="nmURL" SortExpression="nmURL" />
                     <asp:BoundField DataField="boolAvaliable" HeaderText="boolAvaliable" SortExpression="boolAvaliable" />
+                    <asp:BoundField DataField="dtSearch" HeaderText="dtSearch" SortExpression="dtSearch" />
                 </Columns>
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

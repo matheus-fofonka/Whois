@@ -167,6 +167,7 @@ namespace Whois.apresentation.WhoisInterface
                 {
                     avString = "unavailable";
                 }
+                sql.DtTime = (DateTime.Now).ToString();
                 sql.AvaliableRegister = avString;
                 dom.Export();
                 sql.SqlPush();
