@@ -153,10 +153,13 @@ namespace Whois.apresentation.WhoisInterface
 
                 }
                 else
-                {
+                {//limpa os dados 
                     lblSTATUS.ForeColor = System.Drawing.Color.Green;
                     lblSTATUS.Text = "Pronto pra registro";
                     av = true;
+                    lblDtRegister.Text = "";
+                    lblDtUpdate.Text = "";
+                    lblDtExpiration = "";
                     txtURL.Text = "Domínio disponível para registro. ";
                     ListBox1.Items.Add("Ainda não possui servidores.");
                 }
