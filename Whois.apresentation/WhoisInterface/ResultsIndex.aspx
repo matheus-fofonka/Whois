@@ -24,7 +24,7 @@
     <style> body {
         background-image: url('bgImg.jpg');
     background-repeat: no-repeat;
-    background-size:100%;
+    background-size:200%;
     bottom: 0;
     color: black;
     left: 0;
@@ -44,7 +44,7 @@
             &nbsp;</div>
         <br />
         <br />
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource" ForeColor="#333333" GridLines="None" Height="600px" Width="1000px" HorizontalAlign="Center">
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource" ForeColor="#333333" GridLines="None" Height="403px" Width="1000px" HorizontalAlign="Center">
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
