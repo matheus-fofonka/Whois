@@ -44,18 +44,19 @@ namespace Whois.apresentation.WhoisInterface
 
 
         }
-
+        //trata a string tirando a / final; http(s) e www
         public string TreatURL()
-        {
+        {//verifica se a resposta não é a atribuição de outro metodo
             if (txtURL.Text != "" && txtURL.Text != "digite uma URL" && txtURL.Text != "Domínio está registrado. " && txtURL.Text != "Domínio disponível para registro. ")
             {
+                //separa a url pelos ponto e verifica a subString do primeiro array e apaga se for http ou www
                 string[] sptURL = txtURL.Text.Split('.');
 
                 if (sptURL[0].Substring(0, 3) == "htt" || sptURL[0].Substring(0, 3) == "www")
                 {
                     sptURL[0] = "";
                 }
-
+                //junto de novo mas tenho q transformar em um array char pra apagar um . extra 
                 string arrayToStr = String.Join(".", sptURL);
                 char[] strForCharArrDot = arrayToStr.ToCharArray();
 
@@ -67,7 +68,7 @@ namespace Whois.apresentation.WhoisInterface
                         arrayToStr = (arrayToStr + strForCharArrDot[i]);
                     }
                 }
-
+                // aki inverto o array char pra apagar a / q aparece no final das urls
                 string invertedStr = new String(arrayToStr.Reverse().ToArray());
 
                 char[] strForCharInverter = invertedStr.ToCharArray();
@@ -86,6 +87,7 @@ namespace Whois.apresentation.WhoisInterface
             }
             else
             {
+                //aki uso essa string que eu filtro no inicio pra não ter q fazer um retorno em Tuples
                 txtURL.Text = ("digite uma URL");
                 return txtURL.Text;
             }
@@ -98,9 +100,10 @@ namespace Whois.apresentation.WhoisInterface
             {
                 var whois = new WhoisLookup();
                 var response = whois.Lookup(txtURL.Text);
+                //faço essa substing pra filtrar a resposta padrão de domínio não registrado
                 string sub = (response.Content).Substring(0, 12);
                 if (txtURL.Text != "")
-                {
+                {//salvo a url no banco depois dos tratamentos
                     sql.UrlSearched = txtURL.Text;
                 }
                 else
@@ -108,7 +111,6 @@ namespace Whois.apresentation.WhoisInterface
                     sql.UrlSearched = "Não detectado!!";
                 }
                 string url = txtURL.Text;
-                int treatUrl = url.IndexOf(".");
 
                 if (sub != "No match for")
                 {
@@ -119,7 +121,7 @@ namespace Whois.apresentation.WhoisInterface
                     lblSTATUS.ForeColor = System.Drawing.Color.Red;
                     lblSTATUS.Text = "Registrado";
                     try
-                    {
+                    {   // add as variaveis na classe dominio para serializar e adiciona nas labels do front 
                         lblDomain.Text = response.ParsedResponse.DomainName.ToString();
                         dom.NmDomain = response.ParsedResponse.DomainName.ToString();
                         lblDtRegister.Text = response.ParsedResponse.Registered.ToString();
@@ -129,13 +131,13 @@ namespace Whois.apresentation.WhoisInterface
                         lblDtExpiration.Text = response.ParsedResponse.Expiration.ToString();
                         dom.DtExpiration = response.ParsedResponse.Expiration.ToString();
 
-
+                        //add os Name servers pra listBox
                         var servers = response.ParsedResponse.NameServers;
                         foreach (string value in servers)
                         {
                             ListBox1.Items.Add(value);
                         }
-                    }
+                    }//Como esse metodo whois não abrange todas TLD ele manda tem outro metodo q manda todo o conteudo da request
                     catch (Exception)
                     {
                         txtURL.Text = "Tld fora do alcance !";
@@ -165,7 +167,7 @@ namespace Whois.apresentation.WhoisInterface
                 }
                 else
                 {
-                    avString = "unavailable";
+                    avString = "unavailable";//Sobe a url, a data e a disponibilidade do dominio pro SQL_Server e a Classe Dominio é serializada em xml
                 }
                 sql.DtTime = (DateTime.Now).ToString();
                 sql.AvaliableRegister = avString;

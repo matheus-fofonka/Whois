@@ -14,8 +14,9 @@ namespace Whois.apresentation.DbConnection
         public String UrlSearched { get; set; }
         public String AvaliableRegister { get; set; }
         public String DtTime { get; set; }
-
+        //botei a connection string na web.config
         private string connStr = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+        //e usei list para retornar os historicos
         private List<string> lista = new List<string>();
 
         public void SqlPush()

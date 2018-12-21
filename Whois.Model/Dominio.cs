@@ -27,7 +27,7 @@ namespace Whois.Entities
 
         public bool Export()
         {
-            try
+            try// Eu fiquei batendo cabeça na serialização pq eu abria o arquivo com o internet explorer e ficava bugado
             {
                 FileStream stream = new FileStream(@"C:\Users\mfofonka\source\repos\Whois\Whois.Model\Dominio.xml", FileMode.Append);
                 XmlSerializer serializador = new XmlSerializer(typeof(Dominio));

@@ -13,7 +13,8 @@ namespace Whois.apresentation.WhoisInterface
     public partial class WebForm2 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {//eu tinha feito o historico em lista, mas fiz com gridView e ele puxa direto pelo aspx
+
         /*
             DataSql sql = new DataSql();
             var lst = sql.SqlPull();
