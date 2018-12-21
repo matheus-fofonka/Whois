@@ -6,6 +6,12 @@
 <head runat="server">
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+     <!-- Meta tags Obrigatórias -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <title>Pesquise Domínios</title>
     <style type="text/css">
         #IndexWI {
@@ -14,6 +20,22 @@
     </style>
 </head>
 <body>
+
+     <style> body {
+        background-image: url('bgImg.jpg');
+    background-repeat: no-repeat;
+    background-size:100%;
+    bottom: 0;
+    color: black;
+    left: 0;
+    overflow: auto;
+    padding: 3em;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;}
+    </style>
+
     <form id="IndexWI" runat="server">
         <div>
             

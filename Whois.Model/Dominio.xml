@@ -176,4 +176,11 @@
   <DtRegistration>15/09/1997 04:00:00</DtRegistration>
   <DtAlteration>21/02/2018 15:45:07</DtAlteration>
   <DtExpiration>14/09/2020 01:00:00</DtExpiration>
+</Dominios><?xml version="1.0"?>
+<Dominios xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" /><?xml version="1.0"?>
+<Dominios xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <NmDomain>google.com</NmDomain>
+  <DtRegistration>15/09/1997 04:00:00</DtRegistration>
+  <DtAlteration>21/02/2018 15:45:07</DtAlteration>
+  <DtExpiration>14/09/2020 01:00:00</DtExpiration>
 </Dominios>
