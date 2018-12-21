@@ -25,7 +25,7 @@ namespace Whois.Entities
         [XmlElement("DtExpiration")]
         public string DtExpiration { get; set; }
 
-        public bool Exportar()
+        public bool Export()
         {
             try
             {

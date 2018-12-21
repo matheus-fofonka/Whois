@@ -11,7 +11,8 @@ using Whois.NET;
 using Whois;
 using Whois.Entities;
 using Whois.apresentation;
-using Whois.apresentation.SqlConnect;
+using Whois.apresentation.DbConnection;
+
 
 namespace Whois.apresentation.WhoisInterface
 {
@@ -116,8 +117,8 @@ namespace Whois.apresentation.WhoisInterface
                     avString = "unavailable";
                 }
                 sql.AvaliableRegister = avString;
-                dom.Exportar();
-                sql.SqlSaver();
+                dom.Export();
+                sql.SqlPush();
             }
             else { txtURL.Text = ("digite uma URL"); };
 

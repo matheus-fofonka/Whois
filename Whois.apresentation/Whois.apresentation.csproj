@@ -143,7 +143,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlConnect\DataSql.cs" />
+    <Compile Include="DbConnection\DataSql.cs" />
     <Compile Include="WhoisInterface\ResultsIndex.aspx.cs">
       <DependentUpon>ResultsIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
