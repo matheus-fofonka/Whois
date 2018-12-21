@@ -51,10 +51,17 @@
         <div>
             <asp:Label ID="Label6" runat="server" Text="Lista de Servers:"></asp:Label>
             <br />
-            <asp:ListBox ID="ListBox1" runat="server" Width="450px" Height="229px"></asp:ListBox>
+            <asp:ListBox ID="ListBox1" runat="server" Width="600px" Height="250px"></asp:ListBox>
             <br />
+        </div>
+        <div>   
+
+
+            <asp:Label ID="lblContent" runat="server"></asp:Label>
             <br />
-            <br />
+            <asp:ListBox ID="LstContent" runat="server" Height="250px"  Width="600px"></asp:ListBox>
+
+
         </div>
 
     </form>

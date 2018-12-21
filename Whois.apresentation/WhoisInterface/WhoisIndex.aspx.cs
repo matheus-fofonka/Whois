@@ -25,54 +25,64 @@ namespace Whois.apresentation.WhoisInterface
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            lblContent.Text = "";
+
+            LstContent.Items.Clear();
             ListBox1.Items.Clear();
-            
+
             txtURL.Text = TreatURL();
 
             if (txtURL.Text != "digite uma URL")
             {
                 AddInfo();
             }
+            else
+            {
+                lblSTATUS.ForeColor = System.Drawing.Color.Blue;
+                lblSTATUS.Text = "STATUS";
+            }
 
 
         }
 
-        public string TreatURL() { 
-         if (txtURL.Text != "" && txtURL.Text != "digite uma URL" && txtURL.Text != "Domínio está registrado. " && txtURL.Text != "Domínio disponível para registro. "){
-            string[] sptURL = txtURL.Text.Split('.');
-
-            if (sptURL[0].Substring(0, 3) == "htt" || sptURL[0].Substring(0, 3) == "www")
+        public string TreatURL()
+        {
+            if (txtURL.Text != "" && txtURL.Text != "digite uma URL" && txtURL.Text != "Domínio está registrado. " && txtURL.Text != "Domínio disponível para registro. ")
             {
-                sptURL[0] = "";
-            }
+                string[] sptURL = txtURL.Text.Split('.');
 
-            string arrayToStr = String.Join(".", sptURL);
-            char[] strForCharArrDot = arrayToStr.ToCharArray();
-
-            if (strForCharArrDot[0] == '.')
-            {
-                arrayToStr = "";
-                for (int i = 1; i < strForCharArrDot.Length; i++)
+                if (sptURL[0].Substring(0, 3) == "htt" || sptURL[0].Substring(0, 3) == "www")
                 {
-                    arrayToStr = (arrayToStr + strForCharArrDot[i]);
+                    sptURL[0] = "";
                 }
-            }
 
-            string invertedStr = new String(arrayToStr.Reverse().ToArray());
+                string arrayToStr = String.Join(".", sptURL);
+                char[] strForCharArrDot = arrayToStr.ToCharArray();
 
-            char[] strForCharInverter = invertedStr.ToCharArray();
-
-            if (strForCharInverter[0] == '/')
-            {
-                arrayToStr = "";
-                for (int i = 1; i < strForCharInverter.Length; i++)
+                if (strForCharArrDot[0] == '.')
                 {
-                    arrayToStr = (arrayToStr + strForCharInverter[i]);
+                    arrayToStr = "";
+                    for (int i = 1; i < strForCharArrDot.Length; i++)
+                    {
+                        arrayToStr = (arrayToStr + strForCharArrDot[i]);
+                    }
                 }
-                arrayToStr = new String(arrayToStr.Reverse().ToArray());
-            }
 
-            return arrayToStr;
+                string invertedStr = new String(arrayToStr.Reverse().ToArray());
+
+                char[] strForCharInverter = invertedStr.ToCharArray();
+
+                if (strForCharInverter[0] == '/')
+                {
+                    arrayToStr = "";
+                    for (int i = 1; i < strForCharInverter.Length; i++)
+                    {
+                        arrayToStr = (arrayToStr + strForCharInverter[i]);
+                    }
+                    arrayToStr = new String(arrayToStr.Reverse().ToArray());
+                }
+
+                return arrayToStr;
             }
             else
             {
@@ -84,7 +94,7 @@ namespace Whois.apresentation.WhoisInterface
 
         public void AddInfo()
         {
-           
+
             {
                 var whois = new WhoisLookup();
                 var response = whois.Lookup(txtURL.Text);
@@ -108,21 +118,37 @@ namespace Whois.apresentation.WhoisInterface
 
                     lblSTATUS.ForeColor = System.Drawing.Color.Red;
                     lblSTATUS.Text = "Registrado";
-                    lblDomain.Text = response.ParsedResponse.DomainName.ToString();
-                    dom.NmDomain = response.ParsedResponse.DomainName.ToString();
-                    lblDtRegister.Text = response.ParsedResponse.Registered.ToString();
-                    dom.DtRegistration = response.ParsedResponse.Registered.ToString();
-                    lblDtUpdate.Text = response.ParsedResponse.Updated.ToString();
-                    dom.DtAlteration = response.ParsedResponse.Updated.ToString();
-                    lblDtExpiration.Text = response.ParsedResponse.Expiration.ToString();
-                    dom.DtExpiration = response.ParsedResponse.Expiration.ToString();
-
-
-                    var servers = response.ParsedResponse.NameServers;
-                    foreach (string value in servers)
+                    try
                     {
-                        ListBox1.Items.Add(value);
+                        lblDomain.Text = response.ParsedResponse.DomainName.ToString();
+                        dom.NmDomain = response.ParsedResponse.DomainName.ToString();
+                        lblDtRegister.Text = response.ParsedResponse.Registered.ToString();
+                        dom.DtRegistration = response.ParsedResponse.Registered.ToString();
+                        lblDtUpdate.Text = response.ParsedResponse.Updated.ToString();
+                        dom.DtAlteration = response.ParsedResponse.Updated.ToString();
+                        lblDtExpiration.Text = response.ParsedResponse.Expiration.ToString();
+                        dom.DtExpiration = response.ParsedResponse.Expiration.ToString();
+
+
+                        var servers = response.ParsedResponse.NameServers;
+                        foreach (string value in servers)
+                        {
+                            ListBox1.Items.Add(value);
+                        }
                     }
+                    catch (Exception)
+                    {
+                        txtURL.Text = "Tld fora do alcance !";
+                        lblSTATUS.Text = "INFO sobre o domínio abaixo da lista de servers";
+                        lblSTATUS.ForeColor = System.Drawing.Color.BlueViolet;
+                        lblContent.Text = "Informações sobre o domínio";
+                        String[] Cont = (response.Content).Split('\n');
+                        foreach (var item in Cont)
+                        {
+                            LstContent.Items.Add(item);
+                        }
+                    }
+
                 }
                 else
                 {
@@ -145,14 +171,10 @@ namespace Whois.apresentation.WhoisInterface
                 dom.Export();
                 sql.SqlPush();
             }
-             
+
 
         }
 
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-        }
     }
 }
 
