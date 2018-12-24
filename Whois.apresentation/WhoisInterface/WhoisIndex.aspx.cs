@@ -159,7 +159,7 @@ namespace Whois.apresentation.WhoisInterface
                     av = true;
                     lblDtRegister.Text = "";
                     lblDtUpdate.Text = "";
-                    lblDtExpiration = "";
+                    lblDtExpiration.Text = "";
                     txtURL.Text = "Domínio disponível para registro. ";
                     ListBox1.Items.Add("Ainda não possui servidores.");
                 }
